@@ -1,5 +1,4 @@
 // save project API
-// fetch all user's project
 import connectDb from "@/lib/connectDb";
 import Project from "@/models/Project";
 
@@ -10,19 +9,19 @@ export default async function handler(req, res) {
       .json({ success: false, message: "Method not allowed" });
   }
 
-  const { userId, data } = req.body;
+  const { id: projectId, data } = req.body;
 
-  if (!userId || !data) {
+  if (!projectId || !data) {
     return res
       .status(400)
-      .json({ success: false, message: "userId or data missing" });
+      .json({ success: false, message: "projectId or data missing" });
   }
 
   await connectDb("auth");
 
   try {
     const project = await Project.findOneAndUpdate(
-      { userId },
+      { _id: projectId },
       { data },
       { new: true }
     );

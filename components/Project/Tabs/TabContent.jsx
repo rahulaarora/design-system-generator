@@ -31,6 +31,7 @@ const TabContent = ({ activeTab, properties, setProperties }) => {
             <button className="btn btn-outline btn-info my-5" onClick={showInputHandler}> Add {activeTab}</button>
 
             {
+                properties[activeTab] &&
                 Object.keys(properties[activeTab]).map((item, index) => {
                     const label = item;
                     const value = properties[activeTab][item];
