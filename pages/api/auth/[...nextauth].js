@@ -9,6 +9,14 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      profile(profile) {
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture,
+        };
+      },
     }),
   ],
 
@@ -16,6 +24,12 @@ export const authOptions = {
     collection: "sessions",
     databaseName: "auth",
   }),
+
+  callbacks: {
+    async session(session, user) {
+      return session;
+    },
+  },
 };
 
 export default NextAuth(authOptions);

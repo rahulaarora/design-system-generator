@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProjectsDropdown from "../Dashboard/ProjectsDropdown";
 import LoginBtn from "./LoginBtn";
 import { useSession } from "next-auth/react";
@@ -19,9 +20,9 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>}
-                <a className="btn btn-ghost text-lg xl:text-xl">Design System Generator</a>
+                <Link href={"/"} className="btn btn-ghost text-lg xl:text-xl">Design System Generator</Link>
             </div>
-            {session && <div div className="navbar-center hidden lg:flex">
+            {session && <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-1">
                     <li><button className="btn btn-outline btn-info hover:!text-white">Save Project</button></li>
                     <li>
