@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   await connectDb("auth");
 
   try {
-    const project = await Project.find({ _id: projectId });
+    const project = await Project.findById({ _id: projectId });
     res.status(200).json({ success: true, project });
   } catch (error) {
     res.status(500).json({ success: false, error });

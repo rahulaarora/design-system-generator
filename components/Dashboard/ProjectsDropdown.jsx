@@ -12,7 +12,6 @@ const ProjectsDropdown = () => {
             if (projects.length > 0) return
             const headersList = {
                 "Accept": "*/*",
-                "User-Agent": "Thunder Client (https://www.thunderclient.com)",
                 "Content-Type": "application/json"
             }
 
