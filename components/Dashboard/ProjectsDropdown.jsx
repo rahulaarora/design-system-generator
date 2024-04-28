@@ -9,6 +9,7 @@ const ProjectsDropdown = () => {
 
     const fetchAllProjects = useCallback(
         async () => {
+            if (projects.length > 0) return
             const headersList = {
                 "Accept": "*/*",
                 "User-Agent": "Thunder Client (https://www.thunderclient.com)",

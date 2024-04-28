@@ -3,7 +3,7 @@ import connectDb from "@/lib/connectDb";
 import Project from "@/models/Project";
 
 export default async function handler(req, res) {
-  if (!req.method === "POST") {
+  if (req.method !== "POST") {
     return res
       .status(405)
       .json({ success: false, message: "Method not allowed" });

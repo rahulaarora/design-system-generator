@@ -3,25 +3,27 @@ import connectDb from "@/lib/connectDb";
 import Project from "@/models/Project";
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
+  if (req.method !== "GET") {
     return res
       .status(405)
       .json({ success: false, message: "Method not allowed" });
   }
 
-  const { userId } = req.body;
+  const { id: projectId } = req.query;
 
-  if (!userId) {
+  console.log(req.query);
+
+  if (!projectId) {
     return res
       .status(400)
-      .json({ success: false, message: "userId is required" });
+      .json({ success: false, message: "projectId is required" });
   }
 
   await connectDb("auth");
 
   try {
-    const projects = await Project.find({ userId });
-    res.status(200).json({ success: true, projects });
+    const project = await Project.find({ _id: projectId });
+    res.status(200).json({ success: true, project });
   } catch (error) {
     res.status(500).json({ success: false, error });
   }
