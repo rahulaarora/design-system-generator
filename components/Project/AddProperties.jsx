@@ -1,8 +1,8 @@
 import PropertyTabs from "./Tabs/PropertyTabs";
 
-const AddProperties = ({ data }) => {
+const AddProperties = ({ properties, setProperties }) => {
     return (
-        <PropertyTabs projectData={data} />
+        <PropertyTabs properties={properties} setProperties={setProperties} />
     );
 }
 
