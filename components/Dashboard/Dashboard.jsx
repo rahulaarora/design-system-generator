@@ -1,8 +1,10 @@
+import CreateProject from "./CreateProject";
+
 const Dashboard = () => {
     return (
-        <div className="min-h-screen">
-            dashboard
-        </div>
+        <>
+            <CreateProject />
+        </>
     );
 }
 

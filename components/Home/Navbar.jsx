@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ProjectsDropdown from "../Dashboard/ProjectsDropdown";
 import LoginBtn from "./LoginBtn";
 import { useSession } from "next-auth/react";
 
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40 gap-1">
                         <li><button className="btn btn-outline btn-info hover:!text-white">Save Project</button></li>
                         <li>
-                            <button className="btn btn-info text-white">Projects</button>
+                            <ProjectsDropdown />
                         </li>
                     </ul>
                 </div>}
@@ -25,7 +25,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1 gap-1">
                     <li><button className="btn btn-outline btn-info hover:!text-white">Save Project</button></li>
                     <li>
-                        <button className="btn btn-info text-white">Projects</button>
+                        <ProjectsDropdown />
                     </li>
                 </ul>
             </div>}
