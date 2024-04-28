@@ -11,8 +11,6 @@ export default async function handler(req, res) {
 
   const { id: projectId } = req.query;
 
-  console.log(req.query);
-
   if (!projectId) {
     return res
       .status(400)

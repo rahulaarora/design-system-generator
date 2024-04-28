@@ -2,7 +2,7 @@ import Navbar from "@/components/Home/Navbar";
 import AddProperties from "@/components/Project/AddProperties";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 const project = ({ data, projectName, projectId }) => {
@@ -10,6 +10,11 @@ const project = ({ data, projectName, projectId }) => {
   const [properties, setProperties] = useState(
     data?.properties || defaultProperties
   );
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    setProperties(data?.properties || defaultProperties);
+  }, [data]);
 
   async function saveProjectHandler() {
     const headersList = {
