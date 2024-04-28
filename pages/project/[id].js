@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import UserComponents from "@/components/Project/UserComponents";
 
 const project = ({ data, projectName, projectId }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -60,6 +61,7 @@ const project = ({ data, projectName, projectId }) => {
         </button>
       </div>
       <AddProperties properties={properties} setProperties={setProperties} />
+      <UserComponents />
     </>
   );
 };
