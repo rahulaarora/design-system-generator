@@ -19,7 +19,7 @@ const ProjectsDropdown = () => {
                 "userId": session.user.id,
             });
 
-            const response = await fetch("http://localhost:3000/api/projects/fetch", {
+            const response = await fetch("/api/projects/fetch", {
                 method: "POST",
                 body: bodyContent,
                 headers: headersList
