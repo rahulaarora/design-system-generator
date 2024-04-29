@@ -1,8 +1,8 @@
 import PropertyTabs from "./Tabs/PropertyTabs";
 
-const AddProperties = ({ properties, setProperties }) => {
+const AddProperties = ({ properties, setProperties, setComponentProperties }) => {
     return (
-        <PropertyTabs properties={properties} setProperties={setProperties} />
+        <PropertyTabs properties={properties} setProperties={setProperties} setComponentProperties={setComponentProperties} />
     );
 }
 

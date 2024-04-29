@@ -17,6 +17,13 @@ const project = ({ data, projectName, projectId }) => {
     setProperties(data?.properties || defaultProperties);
   }, [data]);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [componentProperties, setComponentProperties] = useState({
+    colors: "white",
+    radius: "0px",
+    spacing: "0px",
+  });
+
   async function saveProjectHandler() {
     const headersList = {
       Accept: "*/*",
@@ -51,7 +58,7 @@ const project = ({ data, projectName, projectId }) => {
   return (
     <>
       <Navbar />
-      <div className="flex gap-5 justify-center items-center">
+      <div className="flex gap-5 justify-center items-center mt-5">
         <h1 className="text-3xl font-bold text-center">{projectName}</h1>
         <button
           className="btn btn-outline btn-info hover:!text-white"
@@ -60,8 +67,12 @@ const project = ({ data, projectName, projectId }) => {
           Save Project
         </button>
       </div>
-      <AddProperties properties={properties} setProperties={setProperties} />
-      <UserComponents />
+      <AddProperties
+        properties={properties}
+        setProperties={setProperties}
+        setComponentProperties={setComponentProperties}
+      />
+      <UserComponents componentProperties={componentProperties} />
     </>
   );
 };
@@ -122,72 +133,3 @@ const defaultProperties = {
   radius: {},
   spacing: {},
 };
-
-/*
-
-
-project_data = {
-   properties : {
-     colors: {
-        primary: "#FF0000",
-        secondary: "#00FF00",
-        tertiary: "#0000FF"
-    },
-    radius: {
-        M: "0.5rem",
-        L: "1rem",
-    },
-    spacing: {
-        S: "0.5rem",
-        M: "1rem",
-        L: "2rem",
-    },
-   },
-   components: {
-        Button: {
-            bgColor: "primary",
-            textColor: "secondary",
-            borderColor: "tertiary",
-            borderRadius: "M",
-            paddingX: "M",
-            paddingY: "M",
-        },
-        Input: {
-            bgColor: "primary",
-            textColor: "secondary",
-            borderColor: "tertiary",
-            borderRadius: "M",
-            paddingX: "M",
-            paddingY: "M",
-            type: "Text",
-        },
-        Radio: {
-            bgColor: "primary",
-            textColor: "secondary",
-            borderColor: "tertiary",
-            borderRadius: "M",
-            paddingX: "M",
-            paddingY: "M",
-        },
-        Checkbox: {
-            bgColor: "primary",
-            textColor: "secondary",
-            borderColor: "tertiary",
-            borderRadius: "M",
-            paddingX: "M",
-            paddingY: "M",
-        },
-        Select: {
-            bgColor: "primary",
-            textColor: "secondary",
-            borderColor: "tertiary",
-            borderRadius: "M",
-            paddingX: "M",
-            paddingY: "M",
-        },
-   }
-   
-      
-}
-
-*/

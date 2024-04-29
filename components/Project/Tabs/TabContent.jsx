@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TabContent = ({ activeTab, properties, setProperties }) => {
+const TabContent = ({ activeTab, properties, setProperties, setComponentProperties }) => {
 
     const [showInputs, setShowInputs] = useState(false)
     const [label, setLabel] = useState('')
@@ -23,6 +23,13 @@ const TabContent = ({ activeTab, properties, setProperties }) => {
             return
         }
         setShowInputs((prev) => !prev)
+    }
+
+    function applyProperty(value) {
+        setComponentProperties((prev) => ({
+            ...prev,
+            [activeTab]: value
+        }))
     }
 
     return (
@@ -49,6 +56,10 @@ const TabContent = ({ activeTab, properties, setProperties }) => {
                                     <span className="label-text">Value</span>
                                 </div>
                                 <div className="input input-bordered w-full max-w-xs flex items-center" >{value}</div>
+                            </label>
+
+                            <label className="form-control w-full max-w-xs justify-end">
+                                <button className="btn btn-outline btn-info" onClick={() => applyProperty(value)}>Apply</button>
                             </label>
                         </div>
                     )
